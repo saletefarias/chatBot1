@@ -30,7 +30,7 @@ def sofriviolencia(update, context):
 
 
 def inputRespSF(update, context):
-    respSF = lower(update.message.text)
+    respSF = (update.message.text).lower
     print(respsf)
     if (respSF == '1' or respSF == 'sim' or respSF == 's'):
         message = '''Você sofreu uma das categorias de Violências físicas contra a Mulher... 
@@ -38,9 +38,8 @@ def inputRespSF(update, context):
         context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
         #vai mudando o STATE a cada nova pergunta ou estado
-    else:
-        if (respSF == '2' or respSF == 'não' or respSF == 'n'):
-            message = '''Você pode ter sofrido um tipo de Assédio ou(RevengePorn, Ciberbullyng...) 
+    elif (respSF == '2' or respSF == 'não' or respSF == 'n'):
+        message = '''Você pode ter sofrido um tipo de Assédio ou(RevengePorn, Ciberbullyng...) 
                         \nNos ajude a saber respondendo a proxima questão.'''
         context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
